@@ -1,0 +1,16 @@
+CREATE TABLE `Sponsors` (
+  `BusinessID` INT NOT NULL,
+  `SponsorName` VARCHAR(45) NULL,
+  `Address` VARCHAR(45) NULL,
+  `City` VARCHAR(45) NULL,
+  `State` VARCHAR(45) NULL,
+  `Zip` VARCHAR(5) NULL,
+  `Phone` VARCHAR(15) NULL,
+  `Extension` VARCHAR(10) NULL,
+  `Fax` VARCHAR(15) NULL,
+  `Email` VARCHAR(45) NULL,
+  `Website` VARCHAR(45) NULL,
+  `StartYear` INT NULL,
+  `EndYear` INT NULL,
+  PRIMARY KEY (`BusinessID`)
+);
