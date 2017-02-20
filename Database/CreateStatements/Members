@@ -1,0 +1,23 @@
+CREATE TABLE `Members` (
+  `MemberID` INT NOT NULL,
+  `ActiveNumber` INT NULL,
+  `MemberPrefix` VARCHAR(10) NULL,
+  `FirstName` VARCHAR(35) NULL,
+  `LastName` VARCHAR(35) NULL,
+  `PreferedName` VARCHAR(45) NULL,
+  `MemberEmployment` BOOLEAN NOT NULL DEFAULT 0,
+  `Address` VARCHAR(45) NULL,
+  `City` VARCHAR(25) NULL,
+  `State` VARCHAR(2) NULL,
+  `Zip` VARCHAR(5) NULL,
+  `HomePhone` VARCHAR(10) NULL,
+  `CellPhone` VARCHAR(10) NULL,
+  `WorkPhone` VARCHAR(10) NULL,
+  `WorkExtension` VARCHAR(10) NULL,
+  `Email` VARCHAR(45) NULL,
+  `StartDate` YEAR NULL,
+  `EndDate` YEAR NULL,
+  `Gender` VARCHAR(1) NULL,
+  `DOB` DATE NULL,
+  PRIMARY KEY (`MemberID`)
+);
