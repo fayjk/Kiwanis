@@ -1,0 +1,11 @@
+CREATE TABLE `Gift` (
+  `PurchaseID` INT NOT NULL,
+  `PurchaseType` VARCHAR(1) NOT NULL,
+  `Amount` INT NULL,
+  `Year` YEAR NULL,
+  `SponsorID` INT NOT NULL,
+  `MemberID` INT NOT NULL,
+  PRIMARY KEY (`PurchaseID`),
+  FOREIGN KEY (`MemberID`) REFERENCES Members(`MemberID`),
+  FOREIGN KEY (`SponsorID`) REFERENCES Sponsors(`BusinessID`)
+);

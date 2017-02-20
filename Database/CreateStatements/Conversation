@@ -1,0 +1,10 @@
+CREATE TABLE `Conversation` (
+  `NoteID` INT NOT NULL,
+  `Date` DATE NULL,
+  `MemberID` INT NOT NULL,
+  `ContactID` INT NOT NULL,
+  `Message` VARCHAR(300) NOT NULL,
+  PRIMARY KEY (`NoteID`),
+  FOREIGN KEY (`MemberID`) REFERENCES Members(`MemberID`),
+  FOREIGN KEY (`ContactID`) REFERENCES Contacts(`ContactID`)
+);
