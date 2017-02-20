@@ -1,0 +1,88 @@
+CREATE TABLE `Sponsors` (
+  `BusinessID` INT NOT NULL,
+  `SponsorName` VARCHAR(45) NULL,
+  `Address` VARCHAR(45) NULL,
+  `City` VARCHAR(25) NULL,
+  `State` VARCHAR(2) NULL,
+  `Zip` VARCHAR(5) NULL,
+  `Phone` VARCHAR(10) NULL,
+  `Extension` VARCHAR(10) NULL,
+  `Fax` VARCHAR(15) NULL,
+  `Email` VARCHAR(45) NULL,
+  `Website` VARCHAR(45) NULL,
+  `StartYear` YEAR NULL,
+  `EndYear` YEAR NULL,
+  PRIMARY KEY (`BusinessID`)
+);
+
+CREATE TABLE `Contacts` (
+  `ContactID` INT NOT NULL,
+  `BusinessID` INT NULL,
+  `Title` VARCHAR(45) NULL,
+  `FirstName` VARCHAR(25) NULL,
+  `LastName` VARCHAR(25) NULL,
+  `Gender` VARCHAR(1) NULL,
+  `Phone` VARCHAR(10) NULL,
+  `Extension` VARCHAR(10) NULL,
+  `Cell` VARCHAR(10) NULL,
+  `Email` VARCHAR(45) NULL,
+  PRIMARY KEY (`ContactID`),
+  FOREIGN KEY (`BusinessID`) REFERENCES Sponsors(`BusinessID`)
+);
+
+CREATE TABLE `Members` (
+  `MemberID` INT NOT NULL,
+  `ActiveNumber` INT NULL,
+  `MemberPrefix` VARCHAR(10) NULL,
+  `FirstName` VARCHAR(35) NULL,
+  `LastName` VARCHAR(35) NULL,
+  `PreferedName` VARCHAR(45) NULL,
+  `MemberEmployment` BOOLEAN NOT NULL DEFAULT 0,
+  `Address` VARCHAR(45) NULL,
+  `City` VARCHAR(25) NULL,
+  `State` VARCHAR(2) NULL,
+  `Zip` VARCHAR(5) NULL,
+  `HomePhone` VARCHAR(10) NULL,
+  `CellPhone` VARCHAR(10) NULL,
+  `WorkPhone` VARCHAR(10) NULL,
+  `WorkExtension` VARCHAR(10) NULL,
+  `Email` VARCHAR(45) NULL,
+  `StartDate` YEAR NULL,
+  `EndDate` YEAR NULL,
+  `Gender` VARCHAR(1) NULL,
+  `DOB` DATE NULL,
+  PRIMARY KEY (`MemberID`)
+);
+
+CREATE TABLE `Conversation` (
+  `NoteID` INT NOT NULL,
+  `Date` DATE NULL,
+  `MemberID` INT NOT NULL,
+  `ContactID` INT NOT NULL,
+  `Message` VARCHAR(300) NOT NULL,
+  PRIMARY KEY (`NoteID`),
+  FOREIGN KEY (`MemberID`) REFERENCES Members(`MemberID`),
+  FOREIGN KEY (`ContactID`) REFERENCES Contacts(`ContactID`)
+);
+
+CREATE TABLE `Gift` (
+  `PurchaseID` INT NOT NULL,
+  `PurchaseType` VARCHAR(1) NOT NULL,
+  `Amount` INT NULL,
+  `Year` YEAR NULL,
+  `SponsorID` INT NOT NULL,
+  `MemberID` INT NOT NULL,
+  PRIMARY KEY (`PurchaseID`),
+  FOREIGN KEY (`MemberID`) REFERENCES Members(`MemberID`),
+  FOREIGN KEY (`SponsorID`) REFERENCES Sponsors(`BusinessID`)
+);
+
+CREATE TABLE `Event` (
+  `EventID` INT NOT NULL,
+  `Date` DATE NOT NULL,
+  `Location` VARCHAR(50) NULL,
+  `StartTime` VARCHAR(4) NULL,
+  `EndTime` VARCHAR(4) NULL,
+  `Theme` VARCHAR(50) NULL,
+  PRIMARY KEY (`EventID`)
+);
