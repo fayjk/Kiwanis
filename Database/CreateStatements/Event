@@ -1,0 +1,9 @@
+CREATE TABLE `Event` (
+  `EventID` INT NOT NULL,
+  `Date` DATE NOT NULL,
+  `Location` VARCHAR(50) NULL,
+  `StartTime` VARCHAR(4) NULL,
+  `EndTime` VARCHAR(4) NULL,
+  `Theme` VARCHAR(50) NULL,
+  PRIMARY KEY (`EventID`)
+  );
