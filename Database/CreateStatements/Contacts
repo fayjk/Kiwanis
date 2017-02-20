@@ -1,0 +1,14 @@
+CREATE TABLE `Contacts` (
+  `ContactID` INT NOT NULL,
+  `BusinessID` INT NULL,
+  `Title` VARCHAR(45) NULL,
+  `FirstName` VARCHAR(25) NULL,
+  `LastName` VARCHAR(25) NULL,
+  `Gender` VARCHAR(1) NULL,
+  `Phone` VARCHAR(10) NULL,
+  `Extension` VARCHAR(10) NULL,
+  `Cell` VARCHAR(10) NULL,
+  `Email` VARCHAR(45) NULL,
+  PRIMARY KEY (`ContactID`),
+  FOREIGN KEY (`BusinessID`) REFERENCES Sponsors(`BusinessID`)
+);
